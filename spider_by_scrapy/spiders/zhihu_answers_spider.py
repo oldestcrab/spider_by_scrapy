@@ -1,3 +1,14 @@
+#!/usr/bin/env python
+# encoding: utf-8
+
+# @version: 0.1
+# @file: zhihu_answers_spider.py
+# @author: oldestcrab
+# @license: MIT Licence
+# @software: PyCharm
+# @time: 2019/12/6 14:28
+# @description： 爬取知乎某个问题下点赞超过1000的回答信息
+
 import json
 import time
 import re
