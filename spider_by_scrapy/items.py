@@ -37,6 +37,7 @@ class ZhihuAnswersSpiderItem(scrapy.Item):
     # 回答图片列表
     img_urls = scrapy.Field()
 
+
 class AcfunFollowUpdateItem(scrapy.Item):
     # 投稿标题
     content_title = scrapy.Field()
@@ -66,3 +67,10 @@ class AcfunFollowUpdateItem(scrapy.Item):
     up_contribute = scrapy.Field()
     # 个人简介
     up_desc = scrapy.Field()
+
+
+class NovelBiqukanItem(scrapy.Item):
+    collection = scrapy.Field()
+    title = scrapy.Field()
+    title_id = scrapy.Field()
+    content = scrapy.Field()

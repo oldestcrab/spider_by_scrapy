@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import os
 import hashlib
 
 from scrapy import Request
@@ -88,5 +89,26 @@ class AcfunFollowUpdateMysqlPipelines(BaseMysqlPipelines):
         except Exception as e:
             print(e.args)
             self.db.rollback()
+        return item
+
+
+class NovelBiqukanLocalPipelines():
+    def __init__(self):
+        self.name = ''
+
+    def process_item(self, item, spider):
+        novel_dir = './result/novel_biqukan/' + item.get('collection') + '/'
+        if not os.path.exists(novel_dir):
+            os.makedirs(novel_dir)
+
+        with open(novel_dir + item.get('title').replace(r'/', '').replace(r'\\', '').replace(':', '').replace('*',
+                                                                                                              '').replace(
+                '"', '').replace('<', '').replace('>', '').replace('|', '').replace('?', '').replace('%',
+                                                                                                     '').strip() + '.txt',
+                  'w', encoding='utf-8') as f:
+            f.write(item.get('title') + '\n\n')
+            f.write(item.get('content') + '\n\n')
+
+        print(item.get('title'), '下载完成！')
         return item
 
