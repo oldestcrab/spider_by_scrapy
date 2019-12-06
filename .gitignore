@@ -7,3 +7,6 @@ result/
 # IDE
 .vscode/
 .idea/
+
+# 日志
+log/
