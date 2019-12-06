@@ -1,3 +1,3 @@
 from scrapy.cmdline import execute
 
-execute(['scrapy', 'crawl', 'zhihu_answers_spider'])
+execute(['scrapy', 'crawl', 'acfun_follow_update'])

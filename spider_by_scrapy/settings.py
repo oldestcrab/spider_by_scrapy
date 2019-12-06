@@ -66,8 +66,9 @@ DOWNLOADER_MIDDLEWARES = {
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'spider_by_scrapy.pipelines.ZhihuAnswersSpiderImagePipeline': 300,
-   'spider_by_scrapy.pipelines.ZhihuAnswersSpiderMysqlPipelines': 333,
+   # 'spider_by_scrapy.pipelines.ZhihuAnswersSpiderImagePipeline': 300,
+   # 'spider_by_scrapy.pipelines.ZhihuAnswersSpiderMysqlPipelines': 333,
+   'spider_by_scrapy.pipelines.AcfunFollowUpdateMysqlPipelines': 333,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -103,7 +104,8 @@ USER_AGENTS = [
 ]
 
 # 日志
-LOG_FILE = "log/zhihu_answers_spider.log"
+# LOG_FILE = "log/zhihu_answers_spider.log"
+LOG_FILE = "log/acfun_follow_update.log"
 LOG_LEVEL = "INFO"
 
 IMAGES_STORE = './result/zhihu_answers_spider'

@@ -36,3 +36,33 @@ class ZhihuAnswersSpiderItem(scrapy.Item):
     answer_content = scrapy.Field()
     # 回答图片列表
     img_urls = scrapy.Field()
+
+class AcfunFollowUpdateItem(scrapy.Item):
+    # 投稿标题
+    content_title = scrapy.Field()
+    # 名字
+    up_name = scrapy.Field()
+    # 投稿日期
+    content_date = scrapy.Field()
+    # 稿件链接
+    content_url = scrapy.Field()
+    # 稿件弹幕
+    content_danmu = scrapy.Field()
+    # 稿件评论
+    content_discuss = scrapy.Field()
+    # 稿件观看
+    content_view = scrapy.Field()
+    # 稿件类型
+    content_type = scrapy.Field()
+    # 稿件ID
+    content_id = scrapy.Field()
+    # up主页
+    up_url = scrapy.Field()
+    # 关注数量
+    up_flow = scrapy.Field()
+    # 粉丝数量
+    up_fans = scrapy.Field()
+    # 投稿数量
+    up_contribute = scrapy.Field()
+    # 个人简介
+    up_desc = scrapy.Field()
