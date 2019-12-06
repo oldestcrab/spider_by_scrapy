@@ -1,0 +1,9 @@
+__pycache__/
+*.py[cod]
+
+# 结果
+result/
+
+# IDE
+.vscode/
+.idea/
