@@ -71,7 +71,10 @@ ITEM_PIPELINES = {
 
    # 'spider_by_scrapy.pipelines.AcfunFollowUpdateMysqlPipelines': 333,
 
-   'spider_by_scrapy.pipelines.NovelBiqukanLocalPipelines': 333,
+   # 'spider_by_scrapy.pipelines.NovelBiqukanLocalPipelines': 333,
+
+   'spider_by_scrapy.pipelines.UnsplashSpiderImagePipelines': 300,
+   'spider_by_scrapy.pipelines.UnsplashSpiderMysqlPipelines': 333,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -108,10 +111,10 @@ USER_AGENTS = [
 
 # 日志
 # LOG_FILE = "log/zhihu_answers_spider.log"
-LOG_FILE = "log/novel_biqukan.log"
+LOG_FILE = "log/unsplash_spider.log"
 LOG_LEVEL = "INFO"
 
-IMAGES_STORE = './result/zhihu_answers_spider'
+IMAGES_STORE = './result/unsplash_spider'
 
 # mysql
 MYSQL_HOST = os.environ.get('REMOTE_MYSQL_HOST')

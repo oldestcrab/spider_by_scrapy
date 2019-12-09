@@ -112,3 +112,35 @@ class NovelBiqukanLocalPipelines():
         print(item.get('title'), '下载完成！')
         return item
 
+
+class UnsplashSpiderImagePipelines(ImagesPipeline):
+    def get_media_requests(self, item, info):
+        return Request(item.get('urls'))
+
+    def item_completed(self, results, item, info):
+        print(results)
+        path = [x['path'] for ok, x in results if ok]
+        if not path:
+            raise DropItem('unsplash images downloads failed')
+        return item
+
+class UnsplashSpiderMysqlPipelines(BaseMysqlPipelines):
+    def process_item(self, item, spider):
+        print(item)
+        data = dict(item)
+        table = 'unsplash_images'
+        keys = ', '.join(data.keys())
+        values = ', '.join(['%s'] * len(data))
+
+        sql = f'INSERT INTO {table}({keys}) VALUES ({values}) ON DUPLICATE KEY UPDATE'
+        update = ','.join([" {key} = %s".format(key=key) for key in data])
+        sql += update
+        try:
+            if self.cursor.execute(sql, tuple(data.values())*2):
+                self.db.commit()
+        except Exception as e:
+            print(e.args)
+            self.db.rollback()
+
+        return item
+

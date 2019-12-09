@@ -1,3 +1,3 @@
 from scrapy.cmdline import execute
 
-execute(['scrapy', 'crawl', 'novel_biqukan'])
+execute(['scrapy', 'crawl', 'unsplash_spider'])

@@ -74,3 +74,11 @@ class NovelBiqukanItem(scrapy.Item):
     title = scrapy.Field()
     title_id = scrapy.Field()
     content = scrapy.Field()
+
+
+class UnsplashItem(scrapy.Item):
+    title = scrapy.Field()
+    update_time = scrapy.Field()
+    urls = scrapy.Field()
+    username = scrapy.Field()
+    user_url = scrapy.Field()
